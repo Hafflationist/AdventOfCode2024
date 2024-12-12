@@ -5,12 +5,9 @@ module T09.Tag09
     ) where
 
 import Flow
-import Text.Read
 import qualified Data.Bifunctor as B
 import qualified Data.List as L
-import qualified Data.List.Split as LS
 import qualified Data.Maybe as M
-import qualified Data.Text as T
 
 
 type FileId = Int
