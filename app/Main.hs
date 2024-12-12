@@ -7,7 +7,8 @@ module Main (main) where
 -- import T05.Tag05
 -- import T06.Tag06
 -- import T07.Tag07
-import T08.Tag08
+-- import T08.Tag08
+import T09.Tag09
 
 main :: IO ()
 main = someFunc
