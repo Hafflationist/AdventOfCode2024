@@ -35,6 +35,7 @@ library
       T07.Tag07
       T08.Tag08
       T09.Tag09
+      T10.Tag10
   other-modules:
       Paths_aoc2024
   autogen-modules:

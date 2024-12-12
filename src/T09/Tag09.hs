@@ -23,28 +23,8 @@ someFunc = do
   input <- readFile "./src/T09/input09.txt"
   -- input <- readFile "./src/T09/inputTest09.txt"
   let diskmap = input |> parseInput
-  let fiList = [
-              FileIndexed { fileId = 0, filePos = 0, fileSize = 1 },
-              FileIndexed { fileId = 1, filePos = 3, fileSize = 3 }
-            ]
-
-  print [10 .. 0]
-  print (compactingWholeFiles fiList)
-  print (fiList |> checksumIndexed)
-  print (fiList |> compactingWholeFiles |> checksumIndexed)
-  -- print (checksumIndexed fiList)
-  -- let dm2 = [-1,-1,-1,1,1,1]
-  -- print (checksum dm2)
-  -- let hugo2 = diskmap |> indexing 
-  -- print hugo2
-  -- let hugotikus = [FileIndexed {fileId = 0, filePos = 0, fileSize = 2},FileIndexed {fileId = 9, filePos = 2, fileSize = 2},FileIndexed {fileId = 1, filePos = 5, fileSize = 3},FileIndexed {fileId = 2, filePos = 11, fileSize = 1},FileIndexed {fileId = 3, filePos = 15, fileSize = 3},FileIndexed {fileId = 4, filePos = 19, fileSize = 2},FileIndexed {fileId = 5, filePos = 22, fileSize = 4},FileIndexed {fileId = 6, filePos = 27, fileSize = 4},FileIndexed {fileId = 7, filePos = 32, fileSize = 3},FileIndexed {fileId = 8, filePos = 36, fileSize = 4}]
-
-  let hugo = diskmap |> indexing |> compactingWholeFiles
-  print hugo
-  -- let result1 = checksumAfterCompacting diskmap
-  -- print result1
-  let result2Not = checksumAfterNotCompactingWholeFiles diskmap
-  print result2Not
+  let result1 = checksumAfterCompacting diskmap
+  print result1
   let result2 = checksumAfterCompactingWholeFiles diskmap
   print result2
   putStrLn "Hallo Welt 9"
@@ -58,9 +38,8 @@ checksumAfterCompacting :: Diskmap -> Int
 checksumAfterCompacting = flattenDiskmap .> compacting .> checksum
 
 
--- checksumAfterCompactingWholeFiles :: Diskmap -> Int
+checksumAfterCompactingWholeFiles :: Diskmap -> Int
 checksumAfterCompactingWholeFiles = indexing .> compactingWholeFiles .> checksumIndexed
-checksumAfterNotCompactingWholeFiles = indexing .> checksumIndexed
 
 
 flattenDiskmap :: Diskmap -> [FileId]
