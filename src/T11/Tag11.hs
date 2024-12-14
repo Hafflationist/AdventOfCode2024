@@ -5,14 +5,16 @@ module T11.Tag11
     ) where
 
 import Flow
-import Control.Parallel.Strategies
+-- import Control.Parallel.Strategies
 import qualified Data.List as L
 import qualified Data.Text as T
 import qualified Data.MemoTrie as MT
 import Debug.Trace
 
 
-data CountedStone = CountedStone { stoneCount :: Integer, stoneId :: Integer }
+data CountedStone =
+  CountedStone { stoneCount :: Integer, stoneId :: Integer }
+  deriving Show
 
 
 someFunc :: IO ()
@@ -22,8 +24,8 @@ someFunc = do
   let lineOfStones = input |> parseInput
   let result1 = lineOfStones |> evolution 25 |> L.map stoneCount |> L.sum
   print result1
-  -- let result2 = lineOfStones |> L.head |> (:[]) |> evolution 75 |> L.length
-  -- print result2
+  let result2 = lineOfStones |> evolution 75 |> L.map stoneCount |> L.sum
+  print result2
   putStrLn "Hallo Welt 11"
 
 

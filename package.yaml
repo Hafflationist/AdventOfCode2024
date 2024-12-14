@@ -24,6 +24,8 @@ dependencies:
 - text
 - flow
 - split
+- MemoTrie
+- parallel
 
 ghc-options:
 - -Wall

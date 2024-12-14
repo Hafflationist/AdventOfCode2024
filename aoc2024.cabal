@@ -36,6 +36,7 @@ library
       T08.Tag08
       T09.Tag09
       T10.Tag10
+      T11.Tag11
   other-modules:
       Paths_aoc2024
   autogen-modules:
@@ -44,8 +45,10 @@ library
       src
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
-      base >=4.7 && <5
+      MemoTrie
+    , base >=4.7 && <5
     , flow
+    , parallel
     , split
     , text
   default-language: Haskell2010
@@ -60,9 +63,11 @@ executable aoc2024-exe
       app
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      aoc2024
+      MemoTrie
+    , aoc2024
     , base >=4.7 && <5
     , flow
+    , parallel
     , split
     , text
   default-language: Haskell2010
@@ -78,9 +83,11 @@ test-suite aoc2024-test
       test
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      aoc2024
+      MemoTrie
+    , aoc2024
     , base >=4.7 && <5
     , flow
+    , parallel
     , split
     , text
   default-language: Haskell2010
