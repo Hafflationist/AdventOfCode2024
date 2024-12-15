@@ -37,6 +37,8 @@ library
       T09.Tag09
       T10.Tag10
       T11.Tag11
+      T12.Tag12
+      T13.Tag13
   other-modules:
       Paths_aoc2024
   autogen-modules:
@@ -47,6 +49,7 @@ library
   build-depends:
       MemoTrie
     , base >=4.7 && <5
+    , extra
     , flow
     , parallel
     , split
@@ -66,6 +69,7 @@ executable aoc2024-exe
       MemoTrie
     , aoc2024
     , base >=4.7 && <5
+    , extra
     , flow
     , parallel
     , split
@@ -86,6 +90,7 @@ test-suite aoc2024-test
       MemoTrie
     , aoc2024
     , base >=4.7 && <5
+    , extra
     , flow
     , parallel
     , split
