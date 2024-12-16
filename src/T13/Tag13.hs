@@ -5,16 +5,10 @@ module T13.Tag13
     ) where
 
 import Flow
--- import Control.Parallel.Strategies
-import qualified Control.Monad as CM
 import qualified Data.List as L
-import qualified Data.List.Extra as LE
 import qualified Data.List.Split as LS
 import qualified Data.Ratio as R
-import qualified Data.Text as T
 import qualified Data.Maybe as M
-import qualified Data.MemoTrie as MT
-import Debug.Trace
 
 
 data ClawMachine =
