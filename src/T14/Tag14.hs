@@ -29,11 +29,9 @@ someFunc = do
   -- input <- readFile "./src/T14/inputTest14.txt"
   -- let areaMetrics = (11, 7)
   let robots = parseInput input
-  -- let result1 = robots |> moveSwarmNTimes areaMetrics 100 |> L.map rPos
   let result1 = robots |> moveSwarmNTimes areaMetrics 100 |> countQuadrant areaMetrics
   print result1
   let result2 = robots |> moveUntilTree areaMetrics
-  -- putStrLn result2
   writeFile "./hugo.txt" result2
   putStrLn "Hallo Welt 14"
 
@@ -66,8 +64,6 @@ moveUntilTree border swarm =
   |> L.dropWhile (\ (idx, rs) -> not (tree rs))
   |> L.head
   |> (\ (idx, rs) -> show idx ++ ":\n" ++ drawSwarm border rs)
-  -- |> L.map (\ (idx, rs) -> show idx ++ ":\n" ++ drawSwarm border rs)
-  -- |> L.intercalate "\n\n-----------------------------------------------------------------------------------------------------------------\n\n"
 
 
 tree swarm =
@@ -110,7 +106,7 @@ moveBot (xBorder, yBorder) Robot { rPos = (x, y), rVel = rv@(vx, vy) } =
   in Robot { rPos = (newX, newY), rVel = rv }
 
 
--- countQuadrant :: (Int, Int) -> [Robot] -> Int
+countQuadrant :: (Int, Int) -> [Robot] -> Int
 countQuadrant (xBorder, yBorder) rs =
     let
       xMin1 = 0
@@ -125,16 +121,7 @@ countQuadrant (xBorder, yBorder) rs =
       bots2 = countBotsInQuadrant (xMin2,  xMax2, yMin1, yMax1)
       bots3 = countBotsInQuadrant (xMin1,  xMax1, yMin2, yMax2)
       bots4 = countBotsInQuadrant (xMin2,  xMax2, yMin2, yMax2)
-      -- bots1 = countBotsInQuadrant (0,  49, 0, 50)
-      -- bots2 = countBotsInQuadrant (51, 100, 0, 50)
-      -- bots3 = countBotsInQuadrant (0,  49, 51, 102)
-      -- bots4 = countBotsInQuadrant (51, 100, 51, 102)
-      -- bots1 = countBotsInQuadrant (0,  4, 0, 2)
-      -- bots2 = countBotsInQuadrant (6, 10, 0, 2)
-      -- bots3 = countBotsInQuadrant (0,  4, 4, 6)
-      -- bots4 = countBotsInQuadrant (6, 10, 4, 6)
     in bots1 * bots2 * bots3 * bots4
-    -- in (bots1 , bots2 , bots3 , bots4)
   where
     inQuadrant :: (Int, Int, Int, Int) -> (Int, Int) -> Bool
     inQuadrant (xMin, xMax, yMin, yMax) (rx, ry) =
