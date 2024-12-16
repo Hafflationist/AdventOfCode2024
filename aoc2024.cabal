@@ -39,6 +39,7 @@ library
       T11.Tag11
       T12.Tag12
       T13.Tag13
+      T14.Tag14
   other-modules:
       Paths_aoc2024
   autogen-modules:
